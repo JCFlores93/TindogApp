@@ -43,6 +43,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="like_image" translatesAutoresizingMaskIntoConstraints="NO" id="kIG-YA-ymc">
+                                                <rect key="frame" x="25" y="25" width="158" height="70"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nope_image" translatesAutoresizingMaskIntoConstraints="NO" id="sar-CN-7pp">
+                                                <rect key="frame" x="129" y="25" width="197" height="130"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -56,7 +62,11 @@
                                             <constraint firstAttribute="width" secondItem="Hrq-qq-eLF" secondAttribute="height" multiplier="71:101" id="SFB-1g-RIo"/>
                                             <constraint firstAttribute="bottom" secondItem="Xyi-rA-Vqm" secondAttribute="bottom" id="VrL-9j-jSJ"/>
                                             <constraint firstItem="8ER-6p-KCU" firstAttribute="leading" secondItem="Hrq-qq-eLF" secondAttribute="leading" constant="14" id="crp-fK-Rr4"/>
+                                            <constraint firstItem="kIG-YA-ymc" firstAttribute="top" secondItem="Hrq-qq-eLF" secondAttribute="top" constant="25" id="dLu-q2-66h"/>
+                                            <constraint firstItem="kIG-YA-ymc" firstAttribute="leading" secondItem="Hrq-qq-eLF" secondAttribute="leading" constant="25" id="dqA-cm-Nlm"/>
+                                            <constraint firstItem="sar-CN-7pp" firstAttribute="top" secondItem="Hrq-qq-eLF" secondAttribute="top" constant="25" id="fcL-nP-d33"/>
                                             <constraint firstAttribute="trailing" secondItem="8ER-6p-KCU" secondAttribute="trailing" constant="14" id="liq-gc-zFh"/>
+                                            <constraint firstAttribute="trailing" secondItem="sar-CN-7pp" secondAttribute="trailing" constant="25" id="zBk-Z4-R98"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meD-eH-Vba" userLabel="Buttons">
@@ -112,6 +122,8 @@
                     <connections>
                         <outlet property="cardView" destination="Hrq-qq-eLF" id="LCP-Dy-i8R"/>
                         <outlet property="homeWrapper" destination="4XS-IA-x75" id="H76-bO-ebT"/>
+                        <outlet property="likeimage" destination="kIG-YA-ymc" id="Sto-C0-ddO"/>
+                        <outlet property="nopeimage" destination="sar-CN-7pp" id="FR1-3J-6ep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,5 +157,7 @@
         <image name="Super Like" width="51" height="51"/>
         <image name="Swipe Card" width="356" height="507"/>
         <image name="crispeta" width="277" height="369"/>
+        <image name="like_image" width="170" height="114"/>
+        <image name="nope_image" width="197" height="130"/>
     </resources>
 </document>
