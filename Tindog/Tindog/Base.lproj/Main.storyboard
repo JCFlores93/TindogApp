@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -130,6 +135,118 @@
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="117.39130434782609"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="d2x-1T-muT">
+            <objects>
+                <viewController id="R3B-qc-5PO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0DS-WG-U6h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="71T-Pw-jry">
+                                <rect key="frame" x="36.5" y="104.5" width="302" height="458"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-tb-8cM">
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="218"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3le-xL-PHo">
+                                                <rect key="frame" x="0.0" y="0.0" width="302" height="218"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="yBg-DR-wk6">
+                                                        <rect key="frame" x="118.5" y="0.0" width="65" height="65"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="65" id="9Xj-AP-7o4"/>
+                                                            <constraint firstAttribute="height" constant="65" id="qvS-U9-REW"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tindog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-0m-41m">
+                                                        <rect key="frame" x="101" y="65" width="100" height="53"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="W33-jw-22a"/>
+                                                            <constraint firstAttribute="height" constant="53" id="cnF-hU-siL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                        <color key="textColor" red="0.23529411764705882" green="0.2627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Es un Tinder para perritos y Amantes de las mascotas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP5-Z3-g1x">
+                                                        <rect key="frame" x="59" y="118" width="184" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="dZs-Pp-AwS"/>
+                                                            <constraint firstAttribute="width" constant="184" id="hTF-RW-dTp"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.41176470588235292" green="0.42745098039215684" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="3le-xL-PHo" secondAttribute="trailing" id="0h3-n0-UaM"/>
+                                            <constraint firstItem="3le-xL-PHo" firstAttribute="leading" secondItem="8P5-tb-8cM" secondAttribute="leading" id="FzQ-ei-rjj"/>
+                                            <constraint firstAttribute="bottom" secondItem="3le-xL-PHo" secondAttribute="bottom" id="iq8-Vj-Q5f"/>
+                                            <constraint firstItem="3le-xL-PHo" firstAttribute="top" secondItem="8P5-tb-8cM" secondAttribute="top" id="yHN-NQ-w3W"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pB-Co-KEV">
+                                        <rect key="frame" x="0.0" y="218" width="302" height="240"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-Ob-rx8">
+                                                <rect key="frame" x="0.0" y="0.0" width="302" height="240"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hola@tindog.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuK-0e-SkB">
+                                                        <rect key="frame" x="26" y="0.0" width="250" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="O3b-DU-KsQ"/>
+                                                            <constraint firstAttribute="width" constant="250" id="vtN-Jx-YeN"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S3v-q0-BaW">
+                                                        <rect key="frame" x="26" y="87.5" width="250" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="mAW-wj-GAY"/>
+                                                            <constraint firstAttribute="width" constant="250" id="ww1-ZT-v0N"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmL-ck-6pb">
+                                                        <rect key="frame" x="23" y="175" width="256" height="65"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <state key="normal" title="Login / Registro" backgroundImage="login_btn_bg"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ARH-Ob-rx8" secondAttribute="bottom" id="LRS-mu-KcH"/>
+                                            <constraint firstItem="ARH-Ob-rx8" firstAttribute="leading" secondItem="6pB-Co-KEV" secondAttribute="leading" id="O1b-3e-UfL"/>
+                                            <constraint firstAttribute="trailing" secondItem="ARH-Ob-rx8" secondAttribute="trailing" id="Pgc-Mt-900"/>
+                                            <constraint firstItem="ARH-Ob-rx8" firstAttribute="top" secondItem="6pB-Co-KEV" secondAttribute="top" id="eNA-aK-x9s"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="71T-Pw-jry" firstAttribute="centerY" secondItem="0DS-WG-U6h" secondAttribute="centerY" id="ipq-Ij-CTq"/>
+                            <constraint firstItem="71T-Pw-jry" firstAttribute="centerX" secondItem="0DS-WG-U6h" secondAttribute="centerX" id="qTw-8M-ZF0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gdF-kV-Vkc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qHj-WJ-t1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152.8" y="124.58770614692655"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z23-rC-hkw">
             <objects>
@@ -158,6 +275,8 @@
         <image name="Swipe Card" width="356" height="507"/>
         <image name="crispeta" width="277" height="369"/>
         <image name="like_image" width="170" height="114"/>
+        <image name="login_btn_bg" width="256" height="65"/>
         <image name="nope_image" width="197" height="130"/>
+        <image name="splash_icon" width="83" height="83"/>
     </resources>
 </document>
