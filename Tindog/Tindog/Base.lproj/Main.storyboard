@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="117.39130434782609"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="d2x-1T-muT">
             <objects>
-                <viewController id="R3B-qc-5PO" sceneMemberID="viewController">
+                <viewController id="R3B-qc-5PO" customClass="LoginViewController" customModule="Tindog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0DS-WG-U6h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ARH-Ob-rx8">
                                                 <rect key="frame" x="0.0" y="0.0" width="302" height="240"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hola@tindog.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuK-0e-SkB">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hola@tindog.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuK-0e-SkB">
                                                         <rect key="frame" x="26" y="0.0" width="250" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="O3b-DU-KsQ"/>
@@ -206,7 +206,7 @@
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S3v-q0-BaW">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S3v-q0-BaW">
                                                         <rect key="frame" x="26" y="87.5" width="250" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="mAW-wj-GAY"/>
@@ -234,9 +234,24 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hty-xW-8uI">
+                                <rect key="frame" x="15" y="30" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="23" id="KvG-pl-QL0"/>
+                                    <constraint firstAttribute="height" constant="23" id="pEm-8k-qrI"/>
+                                    <constraint firstAttribute="width" constant="23" id="tPQ-5r-pUL"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="u80-De-AdC"/>
+                                </constraints>
+                                <state key="normal" image="close_modal"/>
+                                <connections>
+                                    <action selector="closeBtn:" destination="R3B-qc-5PO" eventType="touchUpInside" id="VOr-qy-swN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hty-xW-8uI" firstAttribute="top" secondItem="gdF-kV-Vkc" secondAttribute="top" constant="10" id="JuT-cL-g8M"/>
+                            <constraint firstItem="hty-xW-8uI" firstAttribute="leading" secondItem="gdF-kV-Vkc" secondAttribute="leading" constant="15" id="WCz-ZB-KVc"/>
                             <constraint firstItem="71T-Pw-jry" firstAttribute="centerY" secondItem="0DS-WG-U6h" secondAttribute="centerY" id="ipq-Ij-CTq"/>
                             <constraint firstItem="71T-Pw-jry" firstAttribute="centerX" secondItem="0DS-WG-U6h" secondAttribute="centerX" id="qTw-8M-ZF0"/>
                         </constraints>
@@ -273,6 +288,7 @@
         <image name="Rewind" width="51" height="51"/>
         <image name="Super Like" width="51" height="51"/>
         <image name="Swipe Card" width="356" height="507"/>
+        <image name="close_modal" width="23" height="23"/>
         <image name="crispeta" width="277" height="369"/>
         <image name="like_image" width="170" height="114"/>
         <image name="login_btn_bg" width="256" height="65"/>
