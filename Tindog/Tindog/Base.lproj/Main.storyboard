@@ -138,7 +138,7 @@
         <!--Login View Controller-->
         <scene sceneID="d2x-1T-muT">
             <objects>
-                <viewController id="R3B-qc-5PO" customClass="LoginViewController" customModule="Tindog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="R3B-qc-5PO" customClass="LoginViewController" customModule="Tindog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0DS-WG-U6h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

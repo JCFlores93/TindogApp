@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    func handleTap(sender: UITapGestureRecognizer) {
+    @objc func handleTap(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
     override func didReceiveMemoryWarning() {

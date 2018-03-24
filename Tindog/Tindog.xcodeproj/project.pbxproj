@@ -14,6 +14,7 @@
 		0F57724C2057826300D97442 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57724B2057826300D97442 /* HomeViewController.swift */; };
 		0F77773A205E3CA100B1D83D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F777739205E3CA100B1D83D /* LoginViewController.swift */; };
 		0F77773D205E3EA200B1D83D /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77773C205E3EA200B1D83D /* UIViewExt.swift */; };
+		0F8054102066AAFE00C9A50E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F80540F2066AAFE00C9A50E /* GoogleService-Info.plist */; };
 		FB523C3C2444CBD6430DFF38 /* Pods_Tindog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A09C60B2C776974904F9859 /* Pods_Tindog.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		0F57724B2057826300D97442 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0F777739205E3CA100B1D83D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0F77773C205E3EA200B1D83D /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		0F80540F2066AAFE00C9A50E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A09C60B2C776974904F9859 /* Pods_Tindog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tindog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D213030313D2D171E5D82B6 /* Pods-Tindog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tindog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tindog/Pods-Tindog.release.xcconfig"; sourceTree = "<group>"; };
 		DE4EF0B00BE48765BA68D62E /* Pods-Tindog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tindog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tindog/Pods-Tindog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				0F57723F20575A9000D97442 /* Assets.xcassets */,
 				0F57724120575A9000D97442 /* LaunchScreen.storyboard */,
 				0F57724420575A9000D97442 /* Info.plist */,
+				0F80540F2066AAFE00C9A50E /* GoogleService-Info.plist */,
 			);
 			path = Tindog;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F57724320575A9000D97442 /* LaunchScreen.storyboard in Resources */,
+				0F8054102066AAFE00C9A50E /* GoogleService-Info.plist in Resources */,
 				0F57724020575A9000D97442 /* Assets.xcassets in Resources */,
 				0F57723E20575A9000D97442 /* Main.storyboard in Resources */,
 			);
@@ -188,11 +192,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Tindog/Pods-Tindog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

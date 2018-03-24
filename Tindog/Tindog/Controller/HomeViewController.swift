@@ -47,6 +47,8 @@ class HomeViewController: UIViewController {
     @objc func goToLogin(sender: UIButton){
         print("push")
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let loginViewController = storyBoard.instantiateViewController(withIdentifier: "loginVC")
+        present(loginViewController, animated: true, completion: nil)
         
     }
     @objc func cardDragged(gestureRecognizer: UIPanGestureRecognizer){
