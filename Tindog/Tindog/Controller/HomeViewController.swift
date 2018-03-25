@@ -24,9 +24,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var likeimage: UIImageView!
     @IBOutlet weak var nopeimage: UIImageView!
     
+    @IBOutlet weak var cardProfileName: UILabel!
     let leftBtn = UIButton(type: .custom)
     var currentUserProfile: UserModel?
     var users = [UserModel]()
+    var secondUserUID: String?
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named:"splash_icon")!, iconInitialSize: CGSize(width:80, height:80), backgroundColor: UIColor.white)
     
@@ -60,6 +62,11 @@ class HomeViewController: UIViewController {
         }
             self.getUsers()
         }
+        
+        UpdateDBService.instance.observerMatch{
+            (matchDict) in
+            
+        }
     }
     @objc func goToLogin(sender: UIButton){
         print("push")
@@ -88,14 +95,33 @@ class HomeViewController: UIViewController {
                 self.nopeimage.alpha = min(abs(xFromCenter / 100),1)
                 
             }
-            if self.cardView.center.x < (self.view.bounds.width / 2 + 100) {
+            if self.cardView.center.x > (self.view.bounds.width / 2 + 100) {
                 print("Like")
                 self.likeimage.alpha = min(abs(xFromCenter / 100),1)
             }
-            //updateImage
-            if self.users.count > 0 {
-                self.updateImage(uid: self.users[self.random(0..<self.users.count)].uid)
+            
+            
+            if gestureRecognizer.state == .ended{
+                print(self.cardView.center)
+                if self.cardView.center.x < (self.view.bounds.width / 2 - 100) {
+                    print("dislike")
+                   
+                    
+                }
+                if self.cardView.center.x > (self.view.bounds.width / 2 + 100) {
+                    print("Like")
+                    if let uid2 = self.secondUserUID {
+                        DataBaseService.instance.createFirebaseDBMatch(uid: self.currentUserProfile!.uid, uid2: uid2)
+                    }
+                    
+                }
+                //updateImage
+                if self.users.count > 0 {
+                    self.updateImage(uid: self.users[self.random(0..<self.users.count)].uid)
+                }
+                
             }
+                
             
             
             rotate = CGAffineTransform(rotationAngle: 0)
@@ -132,14 +158,18 @@ class HomeViewController: UIViewController {
                 print("user: \(user.email)")
                 self.users.append(user)
             }
-            
-        }
+            if self.users.count > 0 {
+                self.updateImage(uid: (self.users.first?.uid)!)
+            }
+        }        
     }
     
     func updateImage(uid: String) {
         DataBaseService.instance.User_Ref.child(uid).observeSingleEvent(of: .value){(snapshot) in
             if let userProfile = UserModel(snapshot: snapshot){
+                self.secondUserUID = userProfile.uid
                 self.cardProfileImage.sd_setImage(with: URL(string: userProfile.profileImage), completed: nil)
+                self.cardProfileName.text = userProfile.displayName
             }
             
         }
