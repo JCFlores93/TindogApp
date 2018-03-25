@@ -45,16 +45,31 @@ class LoginViewController: UIViewController {
                             if error != nil {
                                 self.showAlert(title: "Error", message: error!.localizedDescription)
                             }else {
-                                print("Login")
+                                if let user = user {
+                                    let userData = ["provider": user.providerID, "email": user.email!, "profileImage": "https://i.imgur.com/LrdJ0SO.jpg","displayName":"Crispeta"] as [String: Any]
+                                    DataBaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
+                                }
                             }
                         })
+                            }else {
+                                print("Login")
+                                Auth.auth().signIn(withEmail: email, password: pwd, completion: {(user, error) in
+                                    if error != nil {
+                                        self.showAlert(title: "Error", message: error!.localizedDescription)
+                                    }else {
+                                        print("Login Correcto")
+                                        self.dismiss(animated: true, completion: nil)
+                                    }
+                                })
+                            }
+                    
                     }else {
                         
                     }
                 }
             }
         }
-    }
+    
     @objc func handleTap(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }

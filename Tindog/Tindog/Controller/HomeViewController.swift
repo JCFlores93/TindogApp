@@ -8,6 +8,7 @@
 
 import UIKit
 import RevealingSplashView
+import Firebase
 
 class NavigationImageView: UIImageView {
     override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -21,6 +22,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeWrapper: UIStackView!
     @IBOutlet weak var likeimage: UIImageView!
     @IBOutlet weak var nopeimage: UIImageView!
+    
+    let leftBtn = UIButton(type: .custom)
+    
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named:"splash_icon")!, iconInitialSize: CGSize(width:80, height:80), backgroundColor: UIColor.white)
     
     
@@ -37,11 +41,9 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = titleView
         let homeGR = UIPanGestureRecognizer(target: self, action: #selector(cardDragged(gestureRecognizer:)))
         self.cardView.addGestureRecognizer(homeGR)
-        let leftBtn = UIButton(type: .custom)
-        leftBtn.setImage(UIImage(named:"login"), for: .normal)
-        leftBtn.imageView?.contentMode = .scaleAspectFit
-        leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
-        let leftBarButton = UIBarButtonItem(customView: leftBtn)
+        self.leftBtn.imageView?.contentMode = .scaleAspectFit
+        
+        let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
     @objc func goToLogin(sender: UIButton){
@@ -89,7 +91,25 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @objc func goToProfile(sender: UIButton){
+        print("push")
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profilevc")
+        present(profileViewController, animated: true, completion: nil)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            self.leftBtn.setImage(UIImage(named:"login_active"), for: .normal)
+            self.leftBtn.removeTarget(nil, action: nil, for: .allEvents)
+            self.leftBtn.addTarget(self, action: #selector(goToProfile(sender:)), for: .touchUpInside)
+            self.leftBtn.removeTarget(nil, action: nil, for: .allEvents)
+
+        }else {
+            self.leftBtn.setImage(UIImage(named:"login"), for: .normal)
+            self.leftBtn.addTarget(self, action: #selector(goToLogin(sender:)), for: .touchUpInside)
+        }
+    }
 
     /*
     // MARK: - Navigation
