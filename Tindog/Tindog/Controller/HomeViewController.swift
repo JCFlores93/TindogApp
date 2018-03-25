@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     
     let leftBtn = UIButton(type: .custom)
     var currentUserProfile: UserModel?
+    var users = [UserModel]()
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named:"splash_icon")!, iconInitialSize: CGSize(width:80, height:80), backgroundColor: UIColor.white)
     
@@ -47,8 +48,16 @@ class HomeViewController: UIViewController {
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
         
+        Auth.auth().addStateDidChangeListener{(auth, user) in
+            if let user = user {
+                print("el usuario se inciò correctamente")
+            }else {
+                //print("\(user)")
+            }
         DataBaseService.instance.observeUserProfile{(userDict) in
             self.currentUserProfile = userDict
+        }
+            self.getUsers()
         }
     }
     @objc func goToLogin(sender: UIButton){
@@ -103,7 +112,18 @@ class HomeViewController: UIViewController {
         profileViewController.currentUserProfile = self.currentUserProfile
         //let us manage the back control
         self.navigationController?.pushViewController(profileViewController, animated: true)
-        present(profileViewController, animated: true, completion: nil)
+        //present(profileViewController, animated: true, completion: nil)
+    }
+    
+    func getUsers() {
+        DataBaseService.instance.User_Ref.observeSingleEvent(of: .value) { (snapshot) in
+            let usersSnapshot = snapshot.children.flatMap{ UserModel(snapshot: $0 as! DataSnapshot)}
+            for user in usersSnapshot{
+                print("user: \(user.email)")
+                self.users.append(user)
+            }
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

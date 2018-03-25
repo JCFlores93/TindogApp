@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func vloseProfileBtn(_ sender: Any){
         try! Auth.auth().signOut()
+        self.navigationController?.popToRootViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
@@ -54,4 +55,20 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    @IBAction func importUsersAction(_ sender: Any) {
+        let users = [["email":"crispeta@platzi.com","password":"123456","displayName":"Jean","photoURL":"https://i.imgur.com/YYqOgZB.jpg"],
+                     ["email":"bublie@platzi.com","password":"123456","displayName":"bublie","photoURL":"https://i.imgur.com/rmBXzbv.jpg"],
+                     ["email":"tony@platzi.com","password":"123456","displayName":"Tony","photoURL":"https://i.imgur.com/piEDB2T.jpg"],
+                     ["email":"nalia@platzi.com","password":"123456","displayName":"nalia","photoURL":"https://i.imgur.com/gCclkXK.jpg"],
+                     ["email":"chipotle@platzi.com","password":"123456","displayName":"Chipotle","photoURL":"https://i.imgur.com/ocNYvgJ.jpg"]]
+        
+        for userDemo in users {
+            Auth.auth().createUser(withEmail: userDemo["email"]!, password: userDemo["password"]!, completion: {(user, error) in
+                if let user = user {
+                    let userData = ["provider":user.providerID, "email": user.email!,"profileImage": userDemo["photoURL"]!, "displayName": userDemo["displayName"]!, "userIsOnMatch": false] as [String: Any]
+                    DataBaseService.instance.createFirebaseDBUser(uid: user.uid, userData: userData)
+                }
+            })
+        }
+    }
 }
