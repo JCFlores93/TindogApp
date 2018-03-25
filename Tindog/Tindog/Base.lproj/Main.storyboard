@@ -152,7 +152,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKx-Jr-lZ4">
                                 <rect key="frame" x="60" y="80" width="255" height="333"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iDA-aU-CDo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crispy_head" translatesAutoresizingMaskIntoConstraints="NO" id="iDA-aU-CDo">
                                         <rect key="frame" x="37.5" y="0.0" width="180" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="GgX-d3-Bqi"/>
@@ -196,6 +196,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yEj-cf-XtE"/>
                     </view>
+                    <connections>
+                        <outlet property="profileDisplaynamelbl" destination="ryo-fR-8fY" id="Wc2-b1-0ak"/>
+                        <outlet property="profileEmaillbl" destination="Xmf-K5-tYo" id="1OF-XV-p9R"/>
+                        <outlet property="profileImage" destination="iDA-aU-CDo" id="7Oo-KR-dqb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1R-fG-S1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -400,6 +405,7 @@
         <image name="Swipe Card" width="356" height="507"/>
         <image name="close_modal" width="23" height="23"/>
         <image name="crispeta" width="277" height="369"/>
+        <image name="crispy_head" width="640" height="539"/>
         <image name="like_image" width="170" height="114"/>
         <image name="login_btn_bg" width="256" height="65"/>
         <image name="nope_image" width="197" height="130"/>

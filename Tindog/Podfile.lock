@@ -42,12 +42,16 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - RevealingSplashView (0.4.0)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - RevealingSplashView
+  - SDWebImage
 
 SPEC CHECKSUMS:
   Firebase: dbfb98ccec2dcfcd21ab9cc1b4981a3f3c8c5e26
@@ -61,7 +65,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RevealingSplashView: 72be158ad5e1bc72713e8f78383dc3e1803ce4d1
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
-PODFILE CHECKSUM: ad14a98b4c1d199542c791e666747d417c67a4b5
+PODFILE CHECKSUM: 61a561834792809f3ad24baf384e23ec1fb5008b
 
 COCOAPODS: 1.4.0

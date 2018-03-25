@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var nopeimage: UIImageView!
     
     let leftBtn = UIButton(type: .custom)
+    var currentUserProfile: UserModel?
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named:"splash_icon")!, iconInitialSize: CGSize(width:80, height:80), backgroundColor: UIColor.white)
     
@@ -45,6 +46,10 @@ class HomeViewController: UIViewController {
         
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
+        
+        DataBaseService.instance.observeUserProfile{(userDict) in
+            self.currentUserProfile = userDict
+        }
     }
     @objc func goToLogin(sender: UIButton){
         print("push")
@@ -94,10 +99,13 @@ class HomeViewController: UIViewController {
     @objc func goToProfile(sender: UIButton){
         print("push")
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profilevc")
+        let profileViewController = storyBoard.instantiateViewController(withIdentifier: "profilevc") as! ProfileViewController
+        profileViewController.currentUserProfile = self.currentUserProfile
+        //let us manage the back control
+        self.navigationController?.pushViewController(profileViewController, animated: true)
         present(profileViewController, animated: true, completion: nil)
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             self.leftBtn.setImage(UIImage(named:"login_active"), for: .normal)

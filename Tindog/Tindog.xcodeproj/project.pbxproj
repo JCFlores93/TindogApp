@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1F57B62067FC5A00956A8C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F57B52067FC5A00956A8C /* UserModel.swift */; };
 		0F4C42EA20677B900023D706 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C42E920677B900023D706 /* ProfileViewController.swift */; };
 		0F57723920575A9000D97442 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F57723820575A9000D97442 /* AppDelegate.swift */; };
 		0F57723E20575A9000D97442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F57723C20575A9000D97442 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F1F57B52067FC5A00956A8C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0F4C42E920677B900023D706 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0F57723520575A9000D97442 /* Tindog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tindog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F57723820575A9000D97442 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1F57B42067FC1A00956A8C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F1F57B52067FC5A00956A8C /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0F57722C20575A9000D97442 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		0F57723720575A9000D97442 /* Tindog */ = {
 			isa = PBXGroup;
 			children = (
+				0F1F57B42067FC1A00956A8C /* Models */,
 				0F8054132066C07F00C9A50E /* Services */,
 				0F8054122066C04400C9A50E /* New Group */,
 				0F77773B205E3E7400B1D83D /* extension */,
@@ -218,6 +229,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -226,6 +238,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -275,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F4C42EA20677B900023D706 /* ProfileViewController.swift in Sources */,
+				0F1F57B62067FC5A00956A8C /* UserModel.swift in Sources */,
 				0F8054152066C0BD00C9A50E /* DataBase.swift in Sources */,
 				0F77773D205E3EA200B1D83D /* UIViewExt.swift in Sources */,
 				0F77773A205E3CA100B1D83D /* LoginViewController.swift in Sources */,
