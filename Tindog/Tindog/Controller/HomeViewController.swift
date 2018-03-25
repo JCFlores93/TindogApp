@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     var currentUserProfile: UserModel?
     var users = [UserModel]()
     var secondUserUID: String?
+    let rightBtn = UIButton(type: .custom)
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named:"splash_icon")!, iconInitialSize: CGSize(width:80, height:80), backgroundColor: UIColor.white)
     
@@ -46,8 +47,8 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = titleView
         let homeGR = UIPanGestureRecognizer(target: self, action: #selector(cardDragged(gestureRecognizer:)))
         self.cardView.addGestureRecognizer(homeGR)
-        self.leftBtn.imageView?.contentMode = .scaleAspectFit
         
+        self.leftBtn.imageView?.contentMode = .scaleAspectFit
         let leftBarButton = UIBarButtonItem(customView: self.leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarButton
         
@@ -65,9 +66,34 @@ class HomeViewController: UIViewController {
         
         UpdateDBService.instance.observerMatch{
             (matchDict) in
-            
+            if let match = matchDict {
+                //usuario 2
+                if let user = self.currentUserProfile{
+                    if user.userIsOnMatch == false {
+                        self.changeRigthBtn(active: true)
+                    }else {
+                        self.changeRigthBtn(active: false)
+                    }
+                }
+                
+            }else {
+                self.changeRigthBtn(active: false)
+            }
+        }
+        self.rightBtn.setImage(UIImage(named:"match_inactive"), for: .normal)
+        self.rightBtn.imageView?.contentMode = .scaleAspectFit
+        let rightBarButton = UIBarButtonItem(customView: self.rightBtn)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    func changeRigthBtn(active: Bool) {
+        if active {
+            self.rightBtn.setImage(UIImage(named:"match_active"), for: .normal)
+        }else {
+            self.rightBtn.setImage(UIImage(named:"match_inactive"), for: .normal)
         }
     }
+    
     @objc func goToLogin(sender: UIButton){
         print("push")
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
