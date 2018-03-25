@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -28,7 +29,32 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
-
+    func showAlert(title: String, message: String) {
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertView, animated: true, completion: nil)
+    }
+    @IBAction func loginActionBtn(_ sender: Any) {
+        if (self.emailTextField.text == "" || self.passwordTextField.text == "") {
+            self.showAlert(title: "Error", message: "Algunos de los campos està vacìo")
+        }else {
+            if let email = self.emailTextField.text {
+                if let pwd = self.passwordTextField.text {
+                    if registerMode {
+                        Auth.auth().createUser(withEmail: email, password: pwd, completion: {(user, error) in
+                            if error != nil {
+                                self.showAlert(title: "Error", message: error!.localizedDescription)
+                            }else {
+                                print("Login")
+                            }
+                        })
+                    }else {
+                        
+                    }
+                }
+            }
+        }
+    }
     @objc func handleTap(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
