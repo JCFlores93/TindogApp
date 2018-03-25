@@ -18,6 +18,7 @@ class NavigationImageView: UIImageView {
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var cardProfileImage: UIImageView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var homeWrapper: UIStackView!
     @IBOutlet weak var likeimage: UIImageView!
@@ -85,11 +86,17 @@ class HomeViewController: UIViewController {
             if self.cardView.center.x < (self.view.bounds.width / 2 - 100) {
                 print("dislike")
                 self.nopeimage.alpha = min(abs(xFromCenter / 100),1)
+                
             }
             if self.cardView.center.x < (self.view.bounds.width / 2 + 100) {
                 print("Like")
                 self.likeimage.alpha = min(abs(xFromCenter / 100),1)
             }
+            //updateImage
+            if self.users.count > 0 {
+                self.updateImage(uid: self.users[self.random(0..<self.users.count)].uid)
+            }
+            
             
             rotate = CGAffineTransform(rotationAngle: 0)
             finalTransform = rotate.scaledBy(x: 1, y: 1)
@@ -101,6 +108,9 @@ class HomeViewController: UIViewController {
         }
     }
 
+    func random(_ range:Range<Int>)->Int{
+        return range.lowerBound + Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound)))
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -121,6 +131,15 @@ class HomeViewController: UIViewController {
             for user in usersSnapshot{
                 print("user: \(user.email)")
                 self.users.append(user)
+            }
+            
+        }
+    }
+    
+    func updateImage(uid: String) {
+        DataBaseService.instance.User_Ref.child(uid).observeSingleEvent(of: .value){(snapshot) in
+            if let userProfile = UserModel(snapshot: snapshot){
+                self.cardProfileImage.sd_setImage(with: URL(string: userProfile.profileImage), completed: nil)
             }
             
         }

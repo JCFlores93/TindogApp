@@ -128,6 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AEt-KL-J0W"/>
                     <connections>
+                        <outlet property="cardProfileImage" destination="pvl-S2-Ny1" id="SGK-jk-8GA"/>
                         <outlet property="cardView" destination="Hrq-qq-eLF" id="LCP-Dy-i8R"/>
                         <outlet property="homeWrapper" destination="4XS-IA-x75" id="H76-bO-ebT"/>
                         <outlet property="likeimage" destination="kIG-YA-ymc" id="Sto-C0-ddO"/>
