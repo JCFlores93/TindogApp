@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
         </array>
@@ -143,19 +146,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xt-pg-70N">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cerrar Cuenta"/>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_bg" translatesAutoresizingMaskIntoConstraints="NO" id="iAF-kR-uC3">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKx-Jr-lZ4">
+                                <rect key="frame" x="60" y="80" width="255" height="333"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iDA-aU-CDo">
+                                        <rect key="frame" x="37.5" y="0.0" width="180" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="GgX-d3-Bqi"/>
+                                            <constraint firstAttribute="width" constant="180" id="JdJ-LO-4mi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crispeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryo-fR-8fY">
+                                        <rect key="frame" x="97.5" y="197" width="60" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="crispeta@hotmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-K5-tYo">
+                                        <rect key="frame" x="48" y="232.5" width="159" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xt-pg-70N">
+                                        <rect key="frame" x="0.0" y="268" width="255" height="65"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Cerrar Cuenta" backgroundImage="login_btn_bg">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="vloseProfileBtn:" destination="Vu7-Og-ZVa" eventType="touchUpInside" id="63I-GO-r2n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iAF-kR-uC3" firstAttribute="leading" secondItem="yEj-cf-XtE" secondAttribute="leading" id="HCN-Qv-7UM"/>
+                            <constraint firstItem="lKx-Jr-lZ4" firstAttribute="top" secondItem="yEj-cf-XtE" secondAttribute="top" constant="60" id="Ibq-aB-AUB"/>
+                            <constraint firstItem="yEj-cf-XtE" firstAttribute="trailing" secondItem="lKx-Jr-lZ4" secondAttribute="trailing" constant="60" id="bN7-10-KaU"/>
+                            <constraint firstItem="yEj-cf-XtE" firstAttribute="trailing" secondItem="iAF-kR-uC3" secondAttribute="trailing" id="cZF-tg-W5Z"/>
+                            <constraint firstItem="lKx-Jr-lZ4" firstAttribute="leading" secondItem="yEj-cf-XtE" secondAttribute="leading" constant="60" id="npR-JE-wa3"/>
+                            <constraint firstItem="iAF-kR-uC3" firstAttribute="top" secondItem="yEj-cf-XtE" secondAttribute="bottom" id="ro7-cA-foL"/>
+                            <constraint firstAttribute="bottom" secondItem="iAF-kR-uC3" secondAttribute="bottom" id="usd-Wu-MXb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yEj-cf-XtE"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1R-fG-S1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="860"/>
+            <point key="canvasLocation" x="316" y="859.52023988005999"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="d2x-1T-muT">
@@ -235,6 +279,7 @@
                                                             <constraint firstAttribute="width" constant="250" id="ww1-ZT-v0N"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmL-ck-6pb">
@@ -358,6 +403,7 @@
         <image name="like_image" width="170" height="114"/>
         <image name="login_btn_bg" width="256" height="65"/>
         <image name="nope_image" width="197" height="130"/>
+        <image name="profile_bg" width="375" height="667"/>
         <image name="splash_icon" width="83" height="83"/>
     </resources>
 </document>
