@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     var users = [UserModel]()
     var secondUserUID: String?
     let rightBtn = UIButton(type: .custom)
+    var currentMatch: MatchModel?
     
     let revealingSplashScreen = RevealingSplashView(iconImage: UIImage(named:"splash_icon")!, iconInitialSize: CGSize(width:80, height:80), backgroundColor: UIColor.white)
     
@@ -60,26 +61,28 @@ class HomeViewController: UIViewController {
             }
         DataBaseService.instance.observeUserProfile{(userDict) in
             self.currentUserProfile = userDict
+            UpdateDBService.instance.observerMatch{
+                (matchDict) in
+                if let match = matchDict {
+                    //usuario 2
+                    if let user = self.currentUserProfile{
+                        if user.userIsOnMatch == false {
+                            self.currentMatch = match
+                            self.changeRigthBtn(active: true)
+                        }else {
+                            self.changeRigthBtn(active: false)
+                        }
+                    }
+                    
+                }else {
+                    self.changeRigthBtn(active: false)
+                }
+            }
         }
             self.getUsers()
         }
         
-        UpdateDBService.instance.observerMatch{
-            (matchDict) in
-            if let match = matchDict {
-                //usuario 2
-                if let user = self.currentUserProfile{
-                    if user.userIsOnMatch == false {
-                        self.changeRigthBtn(active: true)
-                    }else {
-                        self.changeRigthBtn(active: false)
-                    }
-                }
-                
-            }else {
-                self.changeRigthBtn(active: false)
-            }
-        }
+        
         self.rightBtn.setImage(UIImage(named:"match_inactive"), for: .normal)
         self.rightBtn.imageView?.contentMode = .scaleAspectFit
         let rightBarButton = UIBarButtonItem(customView: self.rightBtn)
@@ -89,7 +92,9 @@ class HomeViewController: UIViewController {
     func changeRigthBtn(active: Bool) {
         if active {
             self.rightBtn.setImage(UIImage(named:"match_active"), for: .normal)
+            self.rightBtn.addTarget(self, action: #selector(goToMatch(sender:)), for: .touchUpInside)
         }else {
+            self.rightBtn.removeTarget(nil, action: nil, for: .allEvents)
             self.rightBtn.setImage(UIImage(named:"match_inactive"), for: .normal)
         }
     }
@@ -177,12 +182,26 @@ class HomeViewController: UIViewController {
         //present(profileViewController, animated: true, completion: nil)
     }
     
+    @objc func goToMatch(sender: UIButton){
+        print("push")
+        let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let matchViewController = storyBoard.instantiateViewController(withIdentifier: "MatchVC") as! MatchViewController
+        matchViewController.currentUserProfile = self.currentUserProfile
+        //let us manage the back control
+        //self.navigationController?.pushViewController(matchViewController, animated: true)
+        matchViewController.currentMatch = self.currentMatch
+        present(matchViewController, animated: true, completion: nil)
+    }
+    
+    
     func getUsers() {
         DataBaseService.instance.User_Ref.observeSingleEvent(of: .value) { (snapshot) in
             let usersSnapshot = snapshot.children.flatMap{ UserModel(snapshot: $0 as! DataSnapshot)}
             for user in usersSnapshot{
                 print("user: \(user.email)")
-                self.users.append(user)
+                if self.currentUserProfile?.uid != user.uid {
+                    self.users.append(user)
+                }
             }
             if self.users.count > 0 {
                 self.updateImage(uid: (self.users.first?.uid)!)

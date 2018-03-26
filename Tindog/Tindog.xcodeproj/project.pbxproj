@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0BAF9D20686C5700055B2B /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BAF9C20686C5700055B2B /* MatchViewController.swift */; };
+		0F0BAF9F206870EC00055B2B /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0BAF9E206870EC00055B2B /* UIImageExt.swift */; };
 		0F18BF2320683591006C2B91 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F18BF2220683591006C2B91 /* MatchModel.swift */; };
 		0F18BF252068391A006C2B91 /*  UpdateDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F18BF242068391A006C2B91 /*  UpdateDB.swift */; };
 		0F1F57B62067FC5A00956A8C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F57B52067FC5A00956A8C /* UserModel.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F0BAF9C20686C5700055B2B /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		0F0BAF9E206870EC00055B2B /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		0F18BF2220683591006C2B91 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		0F18BF242068391A006C2B91 /*  UpdateDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UpdateDB.swift"; sourceTree = "<group>"; };
 		0F1F57B52067FC5A00956A8C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				0F57724B2057826300D97442 /* HomeViewController.swift */,
 				0F777739205E3CA100B1D83D /* LoginViewController.swift */,
 				0F4C42E920677B900023D706 /* ProfileViewController.swift */,
+				0F0BAF9C20686C5700055B2B /* MatchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				0F77773C205E3EA200B1D83D /* UIViewExt.swift */,
+				0F0BAF9E206870EC00055B2B /* UIImageExt.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -297,11 +303,13 @@
 				0F18BF2320683591006C2B91 /* MatchModel.swift in Sources */,
 				0F1F57B62067FC5A00956A8C /* UserModel.swift in Sources */,
 				0F8054152066C0BD00C9A50E /* DataBase.swift in Sources */,
+				0F0BAF9D20686C5700055B2B /* MatchViewController.swift in Sources */,
 				0F18BF252068391A006C2B91 /*  UpdateDB.swift in Sources */,
 				0F77773D205E3EA200B1D83D /* UIViewExt.swift in Sources */,
 				0F77773A205E3CA100B1D83D /* LoginViewController.swift in Sources */,
 				0F57723920575A9000D97442 /* AppDelegate.swift in Sources */,
 				0F57724C2057826300D97442 /* HomeViewController.swift in Sources */,
+				0F0BAF9F206870EC00055B2B /* UIImageExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
